@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Quartz 4.0",
+    pageTitle: "Jonathan Fung",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "jonathanmfung.github.io",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     generateSocialImages: false,
@@ -25,20 +25,20 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
         header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        body: "Segoe UI",
         code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#faf8f8", // page background
+          lightgray: "#e5e5e5", // borders
+          gray: "#b8b8b8", // graph links, heavier borders
+          darkgray: "#4e4e4e", // body text
+          dark: "#2b2b2b", // header text & icons
+          secondary: "#00BFE0", // link color, current graph node
+          tertiary: "#84a59d", // hover states and visited graph nodes
+          highlight: "rgba(143, 159, 169, 0.15)", // internal link background, highlighted text, highlighted lines of code
+          textHighlight: "#fff23688", // markdown highlighted text background
         },
         darkMode: {
           light: "#161618",
@@ -73,6 +73,8 @@ const config: QuartzConfig = {
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
+      Plugin.Citations({bibliographyFile: "./My Library.bib", linkCitations: true, csl: "apa"},
+),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [

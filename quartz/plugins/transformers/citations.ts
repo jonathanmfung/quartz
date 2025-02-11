@@ -14,7 +14,10 @@ const defaultOptions: Options = {
   bibliographyFile: "./bibliography.bib",
   suppressBibliography: false,
   linkCitations: false,
+  // https://rehype-citation.netlify.app/custom-csl
+  // apa, vancouver, harvard1, chicago, mla
   csl: "apa",
+
 }
 
 export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {

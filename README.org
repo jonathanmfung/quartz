@@ -1,0 +1,11 @@
+#+begin_src elisp
+(setq denote-file-type 'markdown-yaml
+      denote-directory (substitute-in-file-name "$HOME/quartz/content/")
+      denote-dired-directories (list denote-directory)
+      denote-prompts '(title keywords))
+
+(setq markdown-unordered-list-item-prefix "  - ")
+#+end_src
+
+#+RESULTS:
+| title | keywords |
