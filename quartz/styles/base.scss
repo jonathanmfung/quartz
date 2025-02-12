@@ -98,12 +98,20 @@ a {
     }
   }
 
-  &.external .external-icon {
-    height: 1ex;
-    margin: 0 0.15em;
+  &.external{
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 0.15rem;
+    text-decoration-color: var(--secondary);
 
-    > path {
-      fill: var(--dark);
+    .external-icon {
+      display: none;
+      height: 1ex;
+      margin: 0 0.15em;
+      > path {
+        fill: var(--dark);
+      }
     }
   }
 }
