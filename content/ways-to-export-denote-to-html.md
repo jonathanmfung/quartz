@@ -6,7 +6,7 @@ tags:
   - orgmode
   - html
 ---
-A variant of [Ways to Export Org to HTML](20250202T151959--ways-to-export-denote-to-html__emacs_html_orgmode) but with Denote, specifically to include a note's backlinks.
+A variant of [[ways-to-export-org-to-html | Ways to Export Org to HTML]] but with Denote, specifically to include a note's backlinks.
 
 ``` elisp
 ;; original method in Totality

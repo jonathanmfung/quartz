@@ -11,7 +11,7 @@ tags:
     -   Both involve random inputs.
 -   Fuzzing:
     -   Fuzzing is looking for uncovering unintended behavior.
-    -   Consequently runs any in-program `asserts`{.verbatim}, checking invariants.
+    -   Consequently runs any in-program `asserts`, checking invariants.
     -   Runs with no assumptions, so good for testing security.
     -   Runs for a long time (hours - months).
 -   Property Testing:

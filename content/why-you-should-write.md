@@ -1,6 +1,5 @@
 ---
-date: 2025-02-09
-description: "February 4, 2025 at 8:55 AM"
+date: 2025-02-09T00:00:00-0800
 title: Why You Should Write
 tags:
   - bib
@@ -41,8 +40,6 @@ So this blog post appeared at a nice time. I found it through a thread on Bluesk
 
 > It's about organizing chaos, finding clarity, and creating something functional, elegant, and, dare I say, beautiful - for yourself and for others who will eventually read or use what you've created
 
-Overall, I think this post (and the bluesky thread) will nudge me into
-the direction of trying out writing myself. And probably into developing
-a blog of my own for other people to read.
+Overall, I think this post (and the bluesky thread) will nudge me into the direction of trying out writing myself. And probably into developing a blog of my own for other people to read.
 
 [^1]: <https://bsky.app/profile/steveklabnik.com/post/3lhejmgb32k2v>

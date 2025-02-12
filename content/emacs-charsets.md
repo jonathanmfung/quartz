@@ -5,12 +5,6 @@ tags:
   - emacs
 ---
 
-```{=org}
-#+filetags:   :emacs:
-```
-```{=org}
-#+identifier: 20250203T095538
-```
 Use `(nth 2 (charset-priority-list)){:elisp}` to access the 3rd highest priority charset.
 
 These charsets have properties such as `(get-charset-property (nth 2 (charset-priority-list)) :code-space){:elisp}` `[0 255 0 255 0 16 0 0]` that are used in `list-charset-chars{:elisp}` to display a charset as a buffer. `define-charset{:elisp}` has documentation for these properties.
