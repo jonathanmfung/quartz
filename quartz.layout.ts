@@ -31,7 +31,9 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer({title: "All Pages"}),
   ],
   right: [
-    Component.Graph(),
+    Component.Graph({
+    localGraph: {scale: 1.5, linkDistance: 50, enableRadial: true,},
+    globalGraph: {repelForce: 0.7, linkDistance: 100, showTags: false, enableRadial: false}}),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
