@@ -1,11 +1,130 @@
-#+begin_src elisp
+#+begin_src elisp :results none
 (setq denote-file-type 'markdown-yaml
       denote-directory (substitute-in-file-name "$HOME/quartz/content/")
       denote-dired-directories (list denote-directory)
       denote-prompts '(title keywords))
+#+end_src
 
-(setq markdown-unordered-list-item-prefix "  - ")
+
+#+begin_src elisp
+;; TODO: move zotero bibtex export location
+(setq quartz-content-dir "~/quartz/content")
+
+;; TODO: create file with front matter
+;; TODO: find-or-create file
+
+(yaml-parse-string "date: 2025-02-03
+title: Setting up Better BibTex in Zotero
+tags:
+  - bibtex
+  - zotero")
 #+end_src
 
 #+RESULTS:
-| title | keywords |
+: #s(hash-table test equal data (tags ["bibtex" "zotero"] title "Setting up Better BibTex in Zotero" date "2025-02-03"))
+
+
+#+begin_src elisp
+(setq quartz-excluded-punctuation-regexp "[][{}!@#$%^&*()=+'\"?,.|;:~`‘’“”/]*")
+
+(defun quartz--slug-no-punct (str &optional extra-characters)
+  "Remove punctuation from STR.
+Concretely, replace with an empty string anything that matches
+the `quartz-excluded-punctuation-regexp'.
+
+EXTRA-CHARACTERS is an optional string that has the same meaning
+as the aforementioned variables.
+
+From denote--slug-no-punct"
+  (dolist (regexp (list quartz-excluded-punctuation-regexp
+                        extra-characters))
+    (when (stringp regexp)
+      (setq str (replace-regexp-in-string regexp "" str))))
+  str)
+
+(defun quartz--slug-hyphenate (str)
+  "Replace spaces and underscores with hyphens in STR.
+Also replace multiple hyphens with a single one and remove any
+leading and trailing hyphen.
+
+From denote--slug-hyphenate."
+  (replace-regexp-in-string
+   "^-\\|-$" ""
+   (replace-regexp-in-string
+    "-\\{2,\\}" "-"
+    (replace-regexp-in-string "_\\|\s+" "-" str))))
+
+(defun quartz-sluggify-title (str)
+  "From denote-sluggify-title."
+  (downcase (quartz--slug-hyphenate (quartz--slug-no-punct str))))
+
+(quartz-sluggify-title "Kpop's Vocabulary asdf\" $40 _")
+
+#+end_src
+
+#+RESULTS:
+: kpops-vocabulary-asdf-40
+
+
+#+begin_src elisp
+(defun quartz-list-files ()
+  (directory-files-recursively quartz-content-dir "\\.md\\'"))
+
+(defun quartz-select-file ()
+  (completing-read "Quartz Notes: "
+		   (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
+			   (quartz-list-files))))
+
+
+(capitalize (replace-regexp-in-string "-" " " "kpops-vocabulary-asdf-40"))
+#+end_src
+
+#+RESULTS:
+: Kpops Vocabulary Asdf 40
+
+#+begin_src elisp
+(defun quartz-find-file ()
+  (interactive)
+  (let ((selected (quartz-select-file)))
+    (find-file (file-name-concat quartz-content-dir selected))))
+#+end_src
+
+#+RESULTS:
+: quartz-find-file
+
+
+#+begin_src elisp
+(defun quartz-insert-link (&optional text)
+  "In format of Wikilinks, [[slugged-name | text]]."
+  (interactive (list (when current-prefix-arg (read-from-minibuffer "Display text: "))))
+  (let ((slugged (file-name-sans-extension (quartz-select-file))))
+    (if text
+	(insert (format "[[%s | %s]]" slugged text))
+      (insert (format "[[%s]]" slugged)))))
+#+end_src
+
+#+RESULTS:
+: quartz-insert-link
+
+#+begin_src elisp
+(defun quartz-create-file ()
+  "From denote--prepare-note."
+  (interactive)
+  (let* ((title (read-from-minibuffer "Title: "))
+	 (slugged (quartz-sluggify-title title))
+	 (path (file-name-concat quartz-content-dir (file-name-with-extension slugged ".md")))
+	 (buffer (find-file path)))
+    (when (file-regular-p path)
+      (user-error "A file named `%s' already exists" path))
+    (with-current-buffer buffer
+      (insert (format "---\ntitle: %s\ndate: %s\ntags:\n  -\n---\n" title (format-time-string "%Y-%m-%dT%T%z"))))))
+#+end_src
+
+#+RESULTS:
+: quartz-create-file
+
+
+#+begin_src
+(dired quartz-content-dir)
+(consult-ripgrep quartz-content-dir)
+#+end_src
