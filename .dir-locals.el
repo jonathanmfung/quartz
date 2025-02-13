@@ -4,4 +4,4 @@
 ((nil .
       ((jf/project-compile-commands .
 				 (("build serve" . "npx quartz build --serve")
-				  ("sync" . "npx quartz sync"))))))
+				  ("version" . "npx quartz --version"))))))

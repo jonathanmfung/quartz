@@ -40,5 +40,5 @@ At the root, I set the local project's commands with a file:
 ((nil .
       ((jf/project-compile-commands .
 				 (("build serve" . "npx quartz build --serve")
-				  ("sync" . "npx quartz sync"))))))
+				  ("version" . "npx quartz --version"))))))
 ```
