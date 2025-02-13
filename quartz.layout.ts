@@ -26,7 +26,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Darkmode(),
-    Component.RecentNotes({title: "Latest Pages"}),
+    Component.DesktopOnly(Component.RecentNotes({title: "Latest Pages"})),
     Component.Search(),
     Component.Explorer({title: "All Pages"}),
   ],
