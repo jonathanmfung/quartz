@@ -71,10 +71,12 @@ From denote--slug-hyphenate."
   (directory-files-recursively quartz-content-dir "\\.md\\'"))
 
 (defun quartz-select-file ()
-  (completing-read "Quartz Notes: "
-		   (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
-			   (quartz-list-files))))
-
+  "Returns path relative to home."
+  (file-name-concat
+   quartz-content-dir
+   (completing-read "Quartz Notes: "
+		    (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
+			    (quartz-list-files)) nil t)))
 
 (capitalize (replace-regexp-in-string "-" " " "kpops-vocabulary-asdf-40"))
 #+end_src
@@ -86,12 +88,11 @@ From denote--slug-hyphenate."
 (defun quartz-find-file ()
   (interactive)
   (let ((selected (quartz-select-file)))
-    (find-file (file-name-concat quartz-content-dir selected))))
+    (find-file selected)))
 #+end_src
 
 #+RESULTS:
 : quartz-find-file
-
 
 #+begin_src elisp
 (defun quartz-insert-link (&optional text)
@@ -107,10 +108,10 @@ From denote--slug-hyphenate."
 : quartz-insert-link
 
 #+begin_src elisp
-(defun quartz-create-file ()
+(defun quartz-create-file (&optional init-title)
   "From denote--prepare-note."
   (interactive)
-  (let* ((title (read-from-minibuffer "Title: "))
+  (let* ((title (read-from-minibuffer "Title: " init-title))
 	 (slugged (quartz-sluggify-title title))
 	 (path (file-name-concat quartz-content-dir (file-name-with-extension slugged ".md")))
 	 (buffer (find-file path)))
@@ -122,6 +123,43 @@ From denote--slug-hyphenate."
 
 #+RESULTS:
 : quartz-create-file
+
+#+begin_src elisp
+;; (defun quartz-find-or-create-file (target)
+;;   (interactive (list (quartz-select-file)))
+;;   (if (and target (file-exists-p target))
+;;       (find-file target)
+;;     (quartz-create-file target)))
+#+end_src
+
+#+RESULTS:
+: quartz-find-or-create-file
+
+#+begin_src elisp
+(defun quartz-current-buffer-url ()
+  (interactive)
+  (let*
+      ((base (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))
+       (url (file-name-concat "http://localhost:8080/" base) ))
+    (kill-new url)
+    (message "Copied %s" url)))
+#+end_src
+
+#+RESULTS:
+: quartz-current-buffer-url
+
+#+begin_src elisp
+(defvar-keymap quartz-mode-map
+  :doc "Keymap for quartz-mode"
+  "f" #'quartz-find-file
+  "n" #'quartz-create-file
+  "l" #'quartz-insert-link
+  "u" #'quartz-current-buffer-url)
+(bind-key "C-c n" quartz-mode-map)
+#+end_src
+
+#+RESULTS:
+: (keymap (117 . quartz-current-buffer-url) (108 . quartz-insert-link) (110 . quartz-create-file) (102 . quartz-find-file))
 
 
 #+begin_src

@@ -16,7 +16,7 @@ I've been having thoughts wondering about:
 -   What's the point of blogs?
 -   Why do so many people have blogs?
 
-So this blog post appeared at a nice time. I found it through a thread on Bluesky by Steve Klabnix, as a reply by Markiewka on the second post [^1]. For archival reasons, here's the short thread:
+So this blog post appeared at a nice time. I found it through a thread on Bluesky by Steve Klabnik, as a reply by Markiewka on the second post [^1]. For archival reasons, here's the short thread:
 
 > \> I completely agree. It's pointless to write about something you don't know much about.
 >
