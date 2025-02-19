@@ -154,12 +154,13 @@ From denote--slug-hyphenate."
   "f" #'quartz-find-file
   "n" #'quartz-create-file
   "l" #'quartz-insert-link
-  "u" #'quartz-current-buffer-url)
+  "u" #'quartz-current-buffer-url
+  "d" (lambda () (interactive) (dired quartz-content-dir)))
 (bind-key "C-c n" quartz-mode-map)
 #+end_src
 
 #+RESULTS:
-: (keymap (117 . quartz-current-buffer-url) (108 . quartz-insert-link) (110 . quartz-create-file) (102 . quartz-find-file))
+: (keymap (100 . #[nil ((dired quartz-content-directory)) nil nil nil nil]) (117 . quartz-current-buffer-url) (108 . quartz-insert-link) (110 . quartz-create-file) (102 . quartz-find-file))
 
 
 #+begin_src

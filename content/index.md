@@ -3,7 +3,9 @@ title: Hello!
 date: 2025-01-02
 ---
 
-This website is my collection of notes and blog posts. Blog posts have the tag #blog, and notes do not. If a note looks incomplete, it probably is. This site is built with [Quartz](https://github.com/jackyzha0/quartz), a static site generator that operates on a bunch of Markdown files. Try out the Graph View feature, either on the right or bottom of the page!
+This website is my collection of notes and blog posts. Blog posts have the tag #blog, and notes do not. If a note looks incomplete, it probably is. Any content under a horizontal line is WIP (except on this page). This site is built with [Quartz](https://github.com/jackyzha0/quartz), a static site generator that operates on a bunch of Markdown files.
+
+> [!tip] Try out the Graph View feature, either on the right or bottom of the page! It also has a button to view the graph of this whole site.
 
 ---
 
