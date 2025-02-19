@@ -26,14 +26,14 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.RecentNotes({title: "Latest Pages"})),
+    Component.DesktopOnly(Component.RecentNotes({title: "Latest Pages", showTags: false})),
     Component.Search(),
     Component.Explorer({title: "All Pages"}),
   ],
   right: [
     Component.Graph({
-    localGraph: {scale: 1.5, linkDistance: 50, enableRadial: true,},
-    globalGraph: {repelForce: 0.7, linkDistance: 100, showTags: false, enableRadial: false}}),
+    localGraph: {depth: 2, scale: 1.5, linkDistance: 50, enableRadial: true,},
+    globalGraph: {scale: 1.2, linkDistance: 20, fontSize: 0.3, opacityScale: 0.8, enableRadial: false,}}),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
