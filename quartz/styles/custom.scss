@@ -1,3 +1,23 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+a {
+    &.external {
+	color: inherit;
+	font-weight: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 0.15rem;
+	text-decoration-color: var(--secondary);
+
+	.external-icon {
+	    display: none;
+	    height: 1ex;
+	    margin: 0 0.15em;
+	    > path {
+		fill: var(--dark);
+	    }
+	}
+    }
+}
+
