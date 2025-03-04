@@ -1,30 +1,17 @@
-#+begin_src elisp :results none
-(setq denote-file-type 'markdown-yaml
-      denote-directory (substitute-in-file-name "$HOME/quartz/content/")
-      denote-dired-directories (list denote-directory)
-      denote-prompts '(title keywords))
-#+end_src
+;; -*- lexical-binding: t; -*-
 
+;; TODO:
+;; (yaml-parse-string "date: 2025-02-03
+;; ;; title: Setting up Better BibTex in Zotero
+;; ;; tags:
+;; ;;   - bibtex
+;; ;;   - zotero")
 
-#+begin_src elisp
 ;; TODO: move zotero bibtex export location
 (setq quartz-content-dir "~/quartz/content")
 
-;; TODO: create file with front matter
 ;; TODO: find-or-create file
 
-(yaml-parse-string "date: 2025-02-03
-title: Setting up Better BibTex in Zotero
-tags:
-  - bibtex
-  - zotero")
-#+end_src
-
-#+RESULTS:
-: #s(hash-table test equal data (tags ["bibtex" "zotero"] title "Setting up Better BibTex in Zotero" date "2025-02-03"))
-
-
-#+begin_src elisp
 (setq quartz-excluded-punctuation-regexp "[][{}!@#$%^&*()=+'\"?,.|;:~`‘’“”/]*")
 
 (defun quartz--slug-no-punct (str &optional extra-characters)
@@ -58,15 +45,8 @@ From denote--slug-hyphenate."
   "From denote-sluggify-title."
   (downcase (quartz--slug-hyphenate (quartz--slug-no-punct str))))
 
-(quartz-sluggify-title "Kpop's Vocabulary asdf\" $40 _")
+;; TODO: (quartz-sluggify-title "Kpop's Vocabulary asdf\" $40 _")
 
-#+end_src
-
-#+RESULTS:
-: kpops-vocabulary-asdf-40
-
-
-#+begin_src elisp
 (defun quartz-list-files ()
   (directory-files-recursively quartz-content-dir "\\.md\\'"))
 
@@ -78,23 +58,13 @@ From denote--slug-hyphenate."
 		    (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
 			    (quartz-list-files)) nil t)))
 
-(capitalize (replace-regexp-in-string "-" " " "kpops-vocabulary-asdf-40"))
-#+end_src
+;; TODO: (capitalize (replace-regexp-in-string "-" " " "kpops-vocabulary-asdf-40"))
 
-#+RESULTS:
-: Kpops Vocabulary Asdf 40
-
-#+begin_src elisp
 (defun quartz-find-file ()
   (interactive)
   (let ((selected (quartz-select-file)))
     (find-file selected)))
-#+end_src
 
-#+RESULTS:
-: quartz-find-file
-
-#+begin_src elisp
 (defun quartz-insert-link (&optional text)
   "In format of Wikilinks, [[slugged-name | text]]."
   (interactive (list (when current-prefix-arg (read-from-minibuffer "Display text: "))))
@@ -102,12 +72,7 @@ From denote--slug-hyphenate."
     (if text
 	(insert (format "[[%s | %s]]" slugged text))
       (insert (format "[[%s]]" slugged)))))
-#+end_src
 
-#+RESULTS:
-: quartz-insert-link
-
-#+begin_src elisp
 (defun quartz-create-file (&optional init-title)
   "From denote--prepare-note."
   (interactive)
@@ -119,23 +84,13 @@ From denote--slug-hyphenate."
       (user-error "A file named `%s' already exists" path))
     (with-current-buffer buffer
       (insert (format "---\ntitle: %s\ndate: %s\ntags:\n  -\n---\n" title (format-time-string "%Y-%m-%dT%T%z"))))))
-#+end_src
 
-#+RESULTS:
-: quartz-create-file
-
-#+begin_src elisp
 ;; (defun quartz-find-or-create-file (target)
 ;;   (interactive (list (quartz-select-file)))
 ;;   (if (and target (file-exists-p target))
 ;;       (find-file target)
 ;;     (quartz-create-file target)))
-#+end_src
 
-#+RESULTS:
-: quartz-find-or-create-file
-
-#+begin_src elisp
 (defun quartz-current-buffer-url ()
   (interactive)
   (let*
@@ -143,12 +98,7 @@ From denote--slug-hyphenate."
        (url (file-name-concat "http://localhost:8080/" base) ))
     (kill-new url)
     (message "Copied %s" url)))
-#+end_src
 
-#+RESULTS:
-: quartz-current-buffer-url
-
-#+begin_src elisp
 (defvar-keymap quartz-mode-map
   :doc "Keymap for quartz-mode"
   "f" #'quartz-find-file
@@ -157,13 +107,6 @@ From denote--slug-hyphenate."
   "u" #'quartz-current-buffer-url
   "d" (lambda () (interactive) (dired quartz-content-dir)))
 (bind-key "C-c n" quartz-mode-map)
-#+end_src
-
-#+RESULTS:
-: (keymap (100 . #[nil ((dired quartz-content-directory)) nil nil nil nil]) (117 . quartz-current-buffer-url) (108 . quartz-insert-link) (110 . quartz-create-file) (102 . quartz-find-file))
 
 
-#+begin_src
-(dired quartz-content-dir)
-(consult-ripgrep quartz-content-dir)
-#+end_src
+;; TODO: do I need this? (consult-ripgrep quartz-content-dir)
