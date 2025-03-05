@@ -24,5 +24,15 @@ a {
 mjx-container[display="true"] {
     svg {
 	width: 100%;
+	padding: 0.75em 0;
     }
+}
+
+
+
+// https://stackoverflow.com/a/77181931/28633986
+// For inference lines in bussproof prooftree envs
+// I have no idea why this isn't included
+.mjx-solid {
+  stroke-width: 60px;
 }
