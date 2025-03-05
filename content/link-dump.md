@@ -4,7 +4,7 @@ date: 2025-02-18T11:46:35-0800
 tags:
   -
 ---
-These are reference that seem interesting to me, but haven't yet decided to add them to my bibliography.
+These are references that seem interesting to me, but haven't yet decided to add them to my bibliography.
 
 - [systemd for Developers I (Socket Activation)](http://0pointer.de/blog/projects/socket-activation.html)
     - #systemd
