@@ -17,9 +17,7 @@ I have a B.S. in Materials Science Engineering from UC Irvine. I have worked as 
 
 I am currently seeking full-time roles in software engineering, materials engineering, or wherever else may be a good fit.
 
-Learn more about me from my résumé.
-
-<!-- TODO: add resume TODO ./public/static/-->
+Learn more about me from my [résumé](./assets/JonathanFung_Resume.pdf).
 
 Email me at: jonathanfung2000 AT gmail DOT com.
 Also feel free to check out my [LinkedIn](https://www.linkedin.com/in/jonathanmfung) and [GitHub](https://github.com/jonathanmfung).
