@@ -105,7 +105,8 @@ From denote--slug-hyphenate."
   "n" #'quartz-create-file
   "l" #'quartz-insert-link
   "u" #'quartz-current-buffer-url
-  "d" (lambda () (interactive) (dired quartz-content-dir)))
+  "d" (lambda () (interactive) (progn (dired quartz-content-dir "-lht") ; list, human-readable, time-sort
+				      (dired-hide-details-mode))))
 (bind-key "C-c n" quartz-mode-map)
 
 
