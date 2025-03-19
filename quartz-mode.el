@@ -7,6 +7,41 @@
 ;; ;;   - bibtex
 ;; ;;   - zotero")
 
+(defun get-frontmatter (filepath)
+  (with-temp-buffer
+    (insert-file-contents filepath)
+    (goto-char (point-min))
+    (search-forward "---")
+    (forward-char)
+    (setq start (point))
+    (search-forward "---")
+    (backward-char 4)
+    (setq end (point))
+    (buffer-substring-no-properties
+     start end)))
+
+(defun get-file-tags (filepath)
+  (gethash 'tags (yaml-parse-string (get-frontmatter filepath))))
+
+(get-frontmatter "~/quartz/content/ocaml.md")
+(get-file-tags "~/quartz/content/ocaml.md")
+(mapconcat 'identity (append (get-file-tags "~/quartz/content/hyphenation.md") nil) ", ")
+
+(defun tag-alist (filepath)
+  (let ((tags (append (get-file-tags filepath) nil)))
+    (mapcar (lambda (t) (cons t filepath)) tags)))
+
+(tag-alist "~/quartz/content/hyphenation.md")
+
+;; (mapcan 'tag-alist (quartz-list-files))
+;; (completing-read "Quartz Tags: " (mapcan 'tag-alist (quartz-list-files)))
+
+
+;; (file-name-concat
+;;    quartz-content-dir
+;;    (completing-read "Quartz Notes: "
+;; 		    (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
+;; 			    (quartz-list-files)) nil t))
 ;; TODO: move zotero bibtex export location
 (setq quartz-content-dir "~/quartz/content")
 
@@ -52,11 +87,18 @@ From denote--slug-hyphenate."
 
 (defun quartz-select-file ()
   "Returns path relative to home."
-  (file-name-concat
-   quartz-content-dir
-   (completing-read "Quartz Notes: "
-		    (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
-			    (quartz-list-files)) nil t)))
+  ;; NOTE: user can match completions with "&programming"
+  (let ((completion-extra-properties
+	 '(:annotation-function
+	   (lambda (filename) (concat "\t"
+			       (mapconcat 'identity
+					  (append (get-file-tags (file-name-concat quartz-content-dir filename)) nil)
+					  ", "))))))
+    (file-name-concat
+     quartz-content-dir
+     (completing-read "Quartz Notes: "
+		      (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
+			      (quartz-list-files)) nil t))))
 
 ;; TODO: (capitalize (replace-regexp-in-string "-" " " "kpops-vocabulary-asdf-40"))
 
@@ -68,7 +110,7 @@ From denote--slug-hyphenate."
 (defun quartz-insert-link (&optional text)
   "In format of Wikilinks, [[slugged-name | text]]."
   (interactive (list (when current-prefix-arg (read-from-minibuffer "Display text: "))))
-  (let ((slugged (file-name-sans-extension (quartz-select-file))))
+  (let ((slugged (file-name-base (quartz-select-file))))
     (if text
 	(insert (format "[[%s | %s]]" slugged text))
       (insert (format "[[%s]]" slugged)))))
@@ -106,7 +148,8 @@ From denote--slug-hyphenate."
   "l" #'quartz-insert-link
   "u" #'quartz-current-buffer-url
   "d" (lambda () (interactive) (progn (dired quartz-content-dir "-lht") ; list, human-readable, time-sort
-				      (dired-hide-details-mode))))
+				      (dired-hide-details-mode)))
+  "r" (lambda () (interactive) (consult-ripgrep quartz-content-dir)))
 (bind-key "C-c n" quartz-mode-map)
 
 
