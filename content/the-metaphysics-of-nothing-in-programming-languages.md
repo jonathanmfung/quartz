@@ -3,6 +3,7 @@ title: The Metaphysics of Nothing - in Programming Languages
 date: 2025-02-13T16:00:04-0800
 tags:
   - programming-languages
+wip: true
 ---
 > The title is a riff of [@finnMetaphysicsNothing].
 

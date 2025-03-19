@@ -4,9 +4,10 @@ date: 2025-02-12T14:08:25-0800
 tags:
   - games
   - personal
+draft: true
 ---
 
-MapleStory holds a very dear place in my heart. It is a 2D sidescrolling Korean MMORPG developed by Nexon, initially released in North America in 2005. My brother introduced me to it, which he learned from a neighbor. I don't remember exactly when I started playing, but there is no doubt it was near the release.
+MapleStory holds a very dear place in my heart. It is a 2D sidescrolling Korean MMORPG developed by Nexon, initially released in North America in 2005. My brother introduced me to it, which he learned of from a neighbor. I don't remember exactly when I started playing, but there is no doubt it was near the release.
 
 Come to think of it, MS was my first introduction to online communities. In-game with Party Quests (Kerning, Romeo & Juliet), Guilds, and party training (Jesters, Lionheart Castle). Out-of-game with some of my school friends and sites like Basilmarket, HiddenStreet, Ayumilove, and Reddit.
 
@@ -16,9 +17,6 @@ If Music:
 
 
 I most likely have over 10000 hours on this game. I only played through Steam in the latter phase and that totals ~2.5k hrs.
-
-
-
 
 ---
 

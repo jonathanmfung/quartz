@@ -3,6 +3,7 @@ title: Sequent Calculus
 date: 2025-02-18T11:12:07-0800
 tags:
   - formal-logic
+  - bib
 ---
 
 > [!note]Resources

@@ -4,6 +4,7 @@ date: 2025-02-17T20:50:54-0800
 tags:
   - crystallography
   - science-history
+wip: true
 ---
 
 I have a hunch that Group Theory discovered/predicted crystal lattices being the form of solid matter through point/space groups before we could inspect them indirectly with X-Ray Diffraction and directly with Electron Microscopy.
