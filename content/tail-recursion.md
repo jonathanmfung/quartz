@@ -2,10 +2,10 @@
 title: Tail Recursion
 date: 2025-02-18T12:26:29-0800
 tags:
-  -
+  - computer-science
 ---
 
-Tail recursion is a specific form of recursion where the recursive step is the last step in a function.
+Tail recursion is a specific form of recursion where the recursive step is the last step in a function. This property is usually exploited to create a tail-call optimization, where the current call is removed from the call stack before recursing again.
 
 (This is ignoring any actual language/compiler semantics, laziness or not[^1])
 

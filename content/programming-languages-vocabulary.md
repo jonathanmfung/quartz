@@ -11,3 +11,28 @@ tags:
     - Inverse with Deserializing (decoding)
 - **Marshalling** is a form of serializing that crosses the type system. Usually with regards to FFI.
 - **Foreign Function Interface (FFI)** is calling another language/runtime system, and converting it to the current one.
+- A **Type Variable** is an identifier that represents the notion of "any" type in a type declaration
+    - These are used in polymorphic contexts
+    - Multiple type variables in a function signature are allowed to resolve to the same type
+- **Polymorphism** is the generalization of a language construct to multiple types. Formally, this means a term can have multiple types.
+
+- **Ad-Hoc Polymorphism**
+- **Parametric Polymorphism**
+- **Row Polymorphism**
+- **Subtype/Inclusion Polymorphism**
+
+- **Linking**
+- **Static Linking**
+- **Dynamic Linking**
+- **Compilation Unit**
+- **Module**
+- **Interface**
+
+---
+- **Immutable Data Structures (Persistence)**
+- **Stack/Heap**
+- **Garbage Collection**
+- **Atomic**
+
+- **Dependent Types**
+- **Abstract Interpretation**

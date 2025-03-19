@@ -1,7 +1,8 @@
 ---
 date: 2025-02-01
 title: Herman Miller Eames Lounge Chair
-tags: furniture
+tags:
+- furniture
 ---
 To me, this is the chair that needs no explanation. It is widely known by name, and if not, by form. The real one is about \$5-6k ([Design Within Reach](https://www.dwr.com/living-lounge-chairs/eames-lounge-chair-and-ottoman/566681.html?lang=en_US&gQT=1&sku=566681)).
 

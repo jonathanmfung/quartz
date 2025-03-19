@@ -2,7 +2,7 @@
 title: Link Dump
 date: 2025-02-18T11:46:35-0800
 tags:
-  -
+  - meta
 ---
 These are references that seem interesting to me, but haven't yet decided to add them to my bibliography.
 
@@ -20,3 +20,8 @@ These are references that seem interesting to me, but haven't yet decided to add
     - #compilers
 - [tiny-CPU - a pedagogical Verilog implementation of a GPU](https://github.com/adam-maj/tiny-gpu)
     - #verilog, #gpu
+- [What is gained and lost with 63-bit integers?](https://blog.janestreet.com/what-is-gained-and-lost-with-63-bit-integers/)
+    - #ocaml, #compilers
+    - Has a definition of Un/Boxed, as well as expanding on [[tagged-pointer]]
+- [Library and Lang for e-graphs](https://egraphs-good.github.io/)
+    - #term-rewriting
