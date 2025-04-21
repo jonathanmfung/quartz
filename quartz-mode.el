@@ -149,8 +149,7 @@ From denote--slug-hyphenate."
   "u" #'quartz-current-buffer-url
   "d" (lambda () (interactive) (progn (dired quartz-content-dir "-lht") ; list, human-readable, time-sort
 				      (dired-hide-details-mode)))
-  "r" (lambda () (interactive) (consult-ripgrep quartz-content-dir)))
+  "r" (lambda () (interactive) (if current-prefix-arg
+				   (consult-ripgrep quartz-content-dir "wip\\|draft")
+				 (consult-ripgrep quartz-content-dir))))
 (bind-key "C-c n" quartz-mode-map)
-
-
-;; TODO: do I need this? (consult-ripgrep quartz-content-dir)

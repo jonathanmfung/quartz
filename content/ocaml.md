@@ -116,6 +116,82 @@ end
 
 There are two instances of `type elt = L.t list{:ocaml}`. I am unsure why both are necessary, I imagine it would be possible to copy the one in line 1 to line 2. It seems that line 1 is part of the functor's signature, so that is another argument to line 1's necessity ([example](https://ocaml.org/manual/5.3/api/Map.html)).
 
+# Directory structure and Modules
+It seems that in a project, if the library root of `Library` is `./lib`, then files are implicitly converted to a module. E.g. a file:
+``` ocaml title="./lib/foo.ml"
+module Bar : sig
+  type t
+  val qux : unit -> t
+end = struct
+  type t = int
+  let qux () = 2
+end
+```
+
+then in `dune utop lib` this can be accessed by `Library.Foo.Bar{:ocaml}`
+
+# Lwt_react Examples
+Can substitute `Lwt_react` for `React`
+
+``` ocaml title="Basic Counter"
+let printer s =
+
+let () =
+  Lwt_main.run
+    (let my_sig, set = Lwt_react.S.create 0 in
+	(* Every time signal gets updated, printf is called with its new value *)
+	(* This is because the result of S.map (`_`) is also a signal, which reacts to its underlying signal *)
+     let _ = Lwt_react.S.map (Lwt_io.printf "%i") my_sig in
+     let rec update_loop () =
+       let () = set (succ @@ Lwt_react.S.value my_sig) in
+       let* () = Lwt_unix.sleep 0.5 in
+       update_loop ();
+     in
+     update_loop ())
+
+```
+
+# Nested Modules and Name Collisions
+This might be a code smell, but since convention is that the underlying type of a module is `t`, I find it difficult to define nested modules. The following is not legal:
+
+``` ocaml title="Does not Compile" {13}
+module type FOOTYPE = sig
+  type t
+end
+
+module type BARTYPE = sig
+  type t
+end
+
+module Foo : FOOTYPE = struct
+  type t = int
+
+  module Bar : BARTYPE = struct
+    type t = t
+  end
+end
+```
+
+The compiler reports at line 13: `Error: The type abbreviation t is cyclic`. The fix is to rename the type:
+
+``` ocaml title="Does Compile" {6}
+module type FOOTYPE = sig
+  type t
+end
+
+module type BARTYPE = sig
+  type v
+end
+
+module Foo : FOOTYPE = struct
+  type t = int
+
+  module Bar : BARTYPE = struct
+    type v = t
+  end
+end
+```
+
 
 [^1]: https://ocaml.org/manual/5.3/expr.html#sss:expr-records
 

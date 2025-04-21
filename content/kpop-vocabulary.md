@@ -54,5 +54,11 @@ wip: true
  | Perfect All-Kill     | same?            |                                                                                                                        |         |
  | Vlive                |                  |                                                                                                                        |         |
 
+# Misc
+ | English         | Korean | Definition                                                                                        | Example |
+ |-----------------|--------|---------------------------------------------------------------------------------------------------|---------|
+ | April Fools Day |        | When fansites post pictures of other idols. Also things like idols changing their Bubble profiles. |         |
+
+
 
 [^1]: https://www.reddit.com/r/kpophelp/comments/xrzw7m/those_pictures_of_photocards_with_food_what_is_it/iqipuqh/

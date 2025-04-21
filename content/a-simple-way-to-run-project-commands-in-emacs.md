@@ -3,6 +3,7 @@ title: A Simple Way to Run Project Commands in Emacs
 date: 2025-02-13T09:55:24-0800
 tags:
   - emacs
+  - tip
 ---
 
 I have a couple lines in my emacs configuration to help me discover and run commands at the project root. I usually use it for building and running a program.
