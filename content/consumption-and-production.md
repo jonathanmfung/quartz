@@ -11,3 +11,11 @@ I am almost 25 as of writing. I consider most of my life to be in the realm of c
 Like many of my age, or so I'm told, I have had fleeting thoughts on becoming a YouTuber or Twitch Streamer. A Content Creator, someone that produces content for people to consume. What's the allure?
 
 For me it's probably a mix of the freedom, money, fame, and mixing passion & work.
+
+
+---
+Publisher - Subscriber
+Leader - Follower
+Caller - Callee
+Sender - Receiver
+Write - Reader

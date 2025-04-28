@@ -49,3 +49,18 @@ Void as my twitter account for me to express some part of my feelings.
 Void as this website: similar to twitter for expression but also knowledge.
 
 Void as my mind and all the fleeting thoughts I don't invest in
+
+
+---
+250427
+
+One of my peeves with conversations is how commonly a statement is made and just accepted by the other party.
+
+I know there is one thing about actually hearing what the other person is feeling, but I just get ticked off when a simple question can be answered with a simple Google search.
+
+This also heavily applies to social media, like Reddit, Twitter, and Twitch. Why would you spend the time replying "what's a doodad" when you can just search it up. In more conversational forms like live streams I can kinda get the analog to real life, but  it still doesn't make sense.
+
+I honestly don't get the point of conversations. It seems and feels like all the conversations I am in, or observe from the outside, revolve around complaining and not being based on the Truth (tm)
+
+250428
+citations are also about letting my future self (also a type of audience) remember where I got info from.
