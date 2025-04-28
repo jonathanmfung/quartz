@@ -1,13 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-;; TODO:
-;; (yaml-parse-string "date: 2025-02-03
-;; ;; title: Setting up Better BibTex in Zotero
-;; ;; tags:
-;; ;;   - bibtex
-;; ;;   - zotero")
-
-(defun get-frontmatter (filepath)
+(defun quartz-get-frontmatter (filepath)
   (with-temp-buffer
     (insert-file-contents filepath)
     (goto-char (point-min))
@@ -20,21 +13,21 @@
     (buffer-substring-no-properties
      start end)))
 
-(defun get-file-tags (filepath)
-  (gethash 'tags (yaml-parse-string (get-frontmatter filepath))))
+(defun quartz-get-file-tags (filepath)
+  (gethash 'tags (yaml-parse-string (quartz-get-frontmatter filepath))))
 
-(get-frontmatter "~/quartz/content/ocaml.md")
-(get-file-tags "~/quartz/content/ocaml.md")
-(mapconcat 'identity (append (get-file-tags "~/quartz/content/hyphenation.md") nil) ", ")
+(quartz-get-frontmatter "~/quartz/content/ocaml.md")
+(quartz-get-file-tags "~/quartz/content/ocaml.md")
+(mapconcat 'identity (append (quartz-get-file-tags "~/quartz/content/hyphenation.md") nil) ", ")
 
-(defun tag-alist (filepath)
-  (let ((tags (append (get-file-tags filepath) nil)))
+(defun quartz-tag-alist (filepath)
+  (let ((tags (append (quartz-get-file-tags filepath) nil)))
     (mapcar (lambda (t) (cons t filepath)) tags)))
 
-(tag-alist "~/quartz/content/hyphenation.md")
+(quartz-tag-alist "~/quartz/content/hyphenation.md")
 
-;; (mapcan 'tag-alist (quartz-list-files))
-;; (completing-read "Quartz Tags: " (mapcan 'tag-alist (quartz-list-files)))
+;; (mapcan 'quartz-tag-alist (quartz-list-files))
+;; (completing-read "Quartz Tags: " (mapcan 'quartz-tag-alist (quartz-list-files)))
 
 
 ;; (file-name-concat
@@ -80,7 +73,18 @@ From denote--slug-hyphenate."
   "From denote-sluggify-title."
   (downcase (quartz--slug-hyphenate (quartz--slug-no-punct str))))
 
-;; TODO: (quartz-sluggify-title "Kpop's Vocabulary asdf\" $40 _")
+(defun quartz-rename-visited-file ()
+  (interactive)
+  (let* ((old (buffer-file-name))
+	 (front-matter (yaml-parse-string (quartz-get-frontmatter old)))
+	 (title (gethash 'title front-matter))
+	 (new-title (quartz-sluggify-title title)))
+    (when (yes-or-no-p (concat "Confirm rename " old " to " new-title))
+      (condition-case foo
+	  (rename-visited-file new-title)
+	(file-already-exists (message "File is already named after title"))))))
+
+;; (quartz-sluggify-title "Kpop's Vocabulary asdf\" $40 _")
 
 (defun quartz-list-files ()
   (directory-files-recursively quartz-content-dir "\\.md\\'"))
@@ -92,7 +96,7 @@ From denote--slug-hyphenate."
 	 '(:annotation-function
 	   (lambda (filename) (concat "\t"
 			       (mapconcat 'identity
-					  (append (get-file-tags (file-name-concat quartz-content-dir filename)) nil)
+					  (append (quartz-get-file-tags (file-name-concat quartz-content-dir filename)) nil)
 					  ", "))))))
     (file-name-concat
      quartz-content-dir
