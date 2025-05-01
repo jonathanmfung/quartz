@@ -36,3 +36,16 @@ mjx-container[display="true"] {
 .mjx-solid {
   stroke-width: 60px;
 }
+#random-btn {
+    width: fit-content;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--darkgray);
+    background: var(--light);
+    border-color: var(--secondary);
+    border-style: solid;
+}
+#random-btn:hover {
+    background: var(--lightgray);
+}
