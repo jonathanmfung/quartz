@@ -2,6 +2,10 @@
 
 // put your custom CSS here!
 
+.page > #quartz-body .sidebar {
+    gap: 1.5rem;
+}
+
 a {
     &.external {
 	color: inherit;
@@ -36,6 +40,12 @@ mjx-container[display="true"] {
 .mjx-solid {
   stroke-width: 60px;
 }
+
+#explorer-ul li {
+    margin-bottom: 8px;
+    line-height: 110%;
+}
+
 #random-btn {
     width: fit-content;
     padding: 0.5rem 0.75rem;
