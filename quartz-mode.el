@@ -14,7 +14,9 @@
      start end)))
 
 (defun quartz-get-file-tags (filepath)
-  (gethash 'tags (yaml-parse-string (quartz-get-frontmatter filepath))))
+  (condition-case err
+	  (gethash 'tags (yaml-parse-string (quartz-get-frontmatter filepath)))
+	(error (message "%s - %s" filepath (error-message-string err)))))
 
 (quartz-get-frontmatter "~/quartz/content/ocaml.md")
 (quartz-get-file-tags "~/quartz/content/ocaml.md")
@@ -89,15 +91,85 @@ From denote--slug-hyphenate."
 (defun quartz-list-files ()
   (directory-files-recursively quartz-content-dir "\\.md\\'"))
 
+;; TODO: Create a buffer that lists tags (maybe also associated files)
+;; (seq-uniq (sort (seq-mapcat 'quartz-get-file-tags (quartz-list-files))))
+;; (benchmark-run 10 (seq-uniq (sort (seq-mapcat 'quartz-get-file-tags (quartz-list-files)))))
+;; (generate-new-buffer "quartz-tags")
+
+;; (let* ((tags (seq-uniq (sort (seq-mapcat 'quartz-get-file-tags (quartz-list-files)))))
+;;        (buf (get-buffer-create "quartz-tags")))
+;;   (set-buffer buf)
+;;   (view-mode -1)
+;;   (erase-buffer)
+;;   (insert (string-join tags "\n - "))
+;;   (view-mode 1)
+;;   (pop-to-buffer buf))
+
+(defun quartz--filepath-to-title-naive (filepath)
+  (capitalize
+   (string-replace "-" " "
+		   (file-name-sans-extension (file-name-nondirectory filepath)))))
+
+(defun quartz-list-db ()
+  (interactive)
+  (let* ((buf (get-buffer-create "quartz-tags")))
+    (with-current-buffer buf
+      (view-mode -1)
+      (erase-buffer)
+      (make-vtable
+       :columns '((:name "Tag" :primary 'ascend)
+				  (:name "File" :formatter quartz--filepath-to-title-naive
+						 :displayer (lambda (val max-width table) (propertize val 'face vtable))))
+       :objects-function (lambda () (seq-map '(lambda (x) (list (car x) (cdr x)))
+											 (seq-mapcat 'quartz-tag-alist (quartz-list-files))))
+       :actions '("RET" (lambda (x) (find-file (cadr x))))
+       :divider "│ "
+       ;; :row-colors (list (modus-themes-get-color-value 'bg-blue-nuanced) (modus-themes-get-color-value 'bg-main))
+       )
+      (view-mode 1))
+    (pop-to-buffer buf)))
+
+(defun quartz-tablist ()
+    (interactive)
+    (let* ((buf (get-buffer-create "*quartz-tablist*")))
+      (with-current-buffer buf
+	(quartz-tablist-mode)
+	(tabulated-list-print))
+      (pop-to-buffer buf)))
+
+(define-derived-mode quartz-tablist-mode
+  tabulated-list-mode "QuartzDB"
+  "Major mode for quartz database."
+  (setq-local tabulated-list-format [("File" 20 t)
+				     ("Tag" 10 t)])
+  (setq-local tabulated-list-entries '(("fileA" ["fileA" "tagA"])
+				       ("fileA" ["fileA" "tagB"])
+				       ("fileB" ["fileB" "tagB"])))
+  ;; (setq-local tabulated-list-groups (seq-group-by '(lambda (entry) (concat "* " (aref (cadr entry) 1))) tabulated-list-entries))
+  )
+
+;; TODO: query zotero sticky note annotations (based on searching-annotations-in-zotero)
+;; (let ((db (sqlite-open "~/Zotero/zotero.sqlite"))
+;;       (substr "%capture%"))
+;;   (prog1
+;;       (sqlite-select db "select v.value as item, ia.text, ia.comment, ipa.path from itemAnnotations ia
+;; 	left join items i on ia.itemID = i.itemID
+;; 	left join itemAttachments ipa on ia.parentItemID = ipa.itemID
+;; 	left join items ipp on ipa.parentItemID = ipp.itemID
+;; 	left join itemData d on d.itemID = ipp.itemID and d.fieldID = 1
+;; 	left join itemDataValues v on d.valueID = v.valueID
+;;         where ia.comment like ?;" (list substr))
+;;     (sqlite-close db)))
+
 (defun quartz-select-file ()
   "Returns path relative to home."
   ;; NOTE: user can match completions with "&programming"
   (let ((completion-extra-properties
 	 '(:annotation-function
 	   (lambda (filename) (concat "\t"
-			       (mapconcat 'identity
-					  (append (quartz-get-file-tags (file-name-concat quartz-content-dir filename)) nil)
-					  ", "))))))
+				      (mapconcat 'identity
+						 (append (quartz-get-file-tags (file-name-concat quartz-content-dir filename)) nil)
+						 ", "))))))
     (file-name-concat
      quartz-content-dir
      (completing-read "Quartz Notes: "
