@@ -3,6 +3,7 @@ title: Abstract Data Types vs Data Structures
 date: 2025-03-11T17:59:49-0700
 tags:
   - computer-science
+  - data-structures
 ---
 
 **Abstract Data Types** (ADT) are, well, abstract representations of data and their associated operations.

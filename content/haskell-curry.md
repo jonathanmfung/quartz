@@ -6,7 +6,7 @@ tags:
   - functional-programming
 ---
 
-- Haskell Curry is known for the Curry-Howard correspondence.
+- Haskell Curry is known for the [[curry-howard-correspondence]].
 - He first studied electrical engineering and physics. He started a mathematics PhD in differential equations at Harvard sometime after 1924, under George Birkhoff.[@seldinLogicCurryChurch]
     - He became interested in logic and discovered Moses Schönfinkel's work on combinatory logic.
         - Original title: *Über die Bausteine der mathematischen Logik*, English Translation *On the building blocks of mathematical logic*

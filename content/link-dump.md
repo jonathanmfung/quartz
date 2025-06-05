@@ -4,7 +4,7 @@ date: 2025-02-18T11:46:35-0800
 tags:
   - meta
 ---
-These are references that seem interesting to me, but haven't yet decided to add them to my bibliography.
+These are references that seem interesting to me, but haven't yet decided to add them to my bibliography. AKA trying to clean up my hundreds of browser tabs.
 
 - [systemd for Developers I (Socket Activation)](http://0pointer.de/blog/projects/socket-activation.html)
     - #systemd
@@ -25,3 +25,61 @@ These are references that seem interesting to me, but haven't yet decided to add
     - Has a definition of Un/Boxed, as well as expanding on [[tagged-pointer]]
 - [Library and Lang for e-graphs](https://egraphs-good.github.io/)
     - #term-rewriting
+- [Reddit Post: [Terence Tao] Formalizing a proof in Lean using Github copilot and canonical](https://www.reddit.com/r/math/comments/1kkoqpg/terence_tao_formalizing_a_proof_in_lean_using/)
+    - #lean-lang, #formal-proofs
+- [Visible Language Journal 59.1](https://www.visible-language.org/59-1/Visible-Language-59-1.pdf)
+    - #typography, #visual-design
+    - Visible Language Journal is The World's Oldest Peer-Reviewed Design Journal
+-  [Nanometer-Scale Layering in Rock Varnish](https://www.journals.uchicago.edu/doi/10.1086/629726)
+    - [Desert Varnish is nanoscale coatings that appear on rock surfaces in arid environments](https://en.wikipedia.org/wiki/Desert_varnish)
+- [Propaganda (1928) - Edward Bernays](https://openlibrary.org/works/OL2781905W/Propaganda?edition=propaganda00bern_0)
+    - #public-relations, #media-studies
+    - Bernays is the "father of public relations"
+- [Bit Twiddling Hacks (1997-2005) - Sean Eron Anderson](https://graphics.stanford.edu/%7Eseander/bithacks.html)
+    - #bit-manipulation
+- [Hacker's Delight](https://doc.lagout.org/security/Hackers%20Delight.pdf)
+    - #bit-manipulation, #algorithms
+- [SecureDrop: Share and accept documents securely](https://securedrop.org/)
+    - #security
+    - from the Freedom of Press Foundation, initially created by Aaron Swartz
+- [Pkl configuration language](https://pkl-lang.org/index.html)
+    - #configuration
+    - has [type constraints](https://pkl-lang.org/main/current/language-reference/index.html#type-constraints): runtime bool checks
+    - from Apple
+- [Я (ya) language ](https://muratkasimov.art/Ya)
+    - #functional-programming
+    - Haskell eDSL for category theory-centric programming
+    - [Custom fonts](https://github.com/iokasimov/ya-fonts) leverage ligatures for [complex operators](https://github.com/iokasimov/ya-operators)
+- [CMU 15-814: Lecture Notes on Progress and Preservation](https://www.cs.cmu.edu/~fp/courses/15814-f21/lectures/08-progress.pdf)
+    - #type-theory
+- [Programming Language Foundations in Agda: Introduction to Programming Language Theory using Agda](https://plfa.github.io/)
+    - #programming-language-theory
+    - [Chapter on Progress and Preservation](https://plfa.github.io/Properties/)
+- [Marpa parsing algorithm](https://arxiv.org/abs/1910.08129)
+    - #parsing
+    - https://lukasatkinson.de/2015/marpa-overview/
+    - https://www.reddit.com/r/ProgrammingLanguages/comments/8cuwmb/the_marpa_parser/
+    - https://github.com/hylo-lang/Lotsawa
+- [Parsing: a timeline - Jeffrey Kegler](https://jeffreykegler.github.io/personal/timeline_v3)
+    - #parsing
+    - https://www.reddit.com/r/programming/comments/8ctcut/parsing_a_timeline_hopefully_this_puts_parsing_is/
+    - https://www.reddit.com/r/ProgrammingLanguages/comments/n6ctph/comparison_of_general_vs_hand_written_parser/
+- [Parsing: The solve Problem That Isn't - Laurence Tratt](https://tratt.net/laurie/blog/2011/parsing_the_solved_problem_that_isnt.html)
+    - [Language Equality problem in Context-free Grammars:](https://en.wikipedia.org/wiki/Context-free_grammar#Language_equality)
+        - related: different CFGs can generate the same context-free language
+- [Brown University: Cognitive Engineering Lab](https://cel.cs.brown.edu/)
+    - #programming-ux
+- [Avoiding Signature Avoidance in ML Modules with Zippers](https://inria.hal.science/hal-04801582v1/document)
+    - #modules, #zippers
+    - " a new path-based type system for a fully fledged ML-module language that avoids the signature avoidance problem"
+- [Laukik Chitnis (UFL): Introduction to Histograms](https://www.cise.ufl.edu/~adobra/approxqp/histograms2)
+    - #histograms, #database-theory
+    - motivation: backing data structures for database operations
+- [Histogram Thesholding](https://vincmazet.github.io/bip/segmentation/histogram.html)
+    - #histograms, #image-processing
+    - Thresholding is a way to binary-classify continuous data (e.g. image segmenting monochromatic images)
+- [Scott Smith: Functional Programming in Software Engineering (Johns Hopkins University 601.329/629)](https://pl.cs.jhu.edu/fpse/)
+    - #cs-education
+    - Modules, Testing, Effects
+- [OCaml Discuss: Seq vs List, optimization](https://discuss.ocaml.org/t/seq-vs-list-optimization/6885)
+    - #ocaml

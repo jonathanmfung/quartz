@@ -55,6 +55,9 @@ Lith Harbor (no NPCs, HQ): https://maplestory.io/api/GMS/255/map/104000000/rende
 Leafre (no NPCs, HQ): https://maplestory.io/api/GMS/255/map/240000000/render
 
 - Zakum
+- Showa being like Yakuza
+- Japanese ghosts, Japanese raccoon
+- Ellinia Faust
 - formula of monster variants (old: stumps, new: chuchu monsters with pattern of 1 variant = 1 map, then mix in last of 3 map)
 
 ## Classes ##

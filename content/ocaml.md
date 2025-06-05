@@ -192,7 +192,17 @@ module Foo : FOOTYPE = struct
 end
 ```
 
+# Preprocessors
+OCaml supports both text-based preprocessors (a la C) and AST-based preprocessors. The AST-based version is more commonly used, known as `PPX`.
 
+`PPX` identify parts of the Parsetree to rewrite based on attributes, `[@attribute_name payload]` where the `@` (closest node) can also be `@@` (closest block) and `@@@` (floating). There can also be extensions nodes: `[%extension_name payload]`
+
+`PPX`s can also be treated as a compile-time-dependency such as with `[@@deriving_inline]`. Using the `@lint` target in dune means the generated code will be added to the source file. Thus, for a `PPX` that realistically is only run when a type definition changes, excess runs can be avoided.
+
+# Optimization
+[Flambda](https://ocaml.org/manual/latest/flambda.html) is a set of optimizations including inlining, specialization, simplification, lifting, unboxing, etc. that can be invoked through the native compiler.
+
+# Footnotes
 [^1]: https://ocaml.org/manual/5.3/expr.html#sss:expr-records
 
 [^2]: https://cs3110.github.io/textbook/chapters/mut/mutable_fields.html

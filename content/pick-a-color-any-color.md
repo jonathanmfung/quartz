@@ -5,7 +5,7 @@ tags:
   - color
 ---
 
-For my Spotify DBus project, I'm looking at ways to extract the dominant(s) colors from an image, in this case an album cover. I simply want to fill the background with a nice color, dynamically.
+For my [[busqer]] project, I was looking at ways to extract the dominant colors from an image, in this case an album cover. I simply want to fill the background with a nice color, dynamically.
 
 Like starting any good research rabbit-hole, converting my abstract goal to a searchable query (with proper terms of art) takes some reflection:
 
@@ -21,8 +21,12 @@ I somehow ended up on [Color quantization](https://en.wikipedia.org/wiki/Color_q
 
 E.g: In a 12-bit RGB space: A parent at index `356_` (${(011\_,101\_,110\_)}_b$ , ${(6, 10, 12)}_d$) has children at `[2,5,4]`. Those children get reduced so now `[3562, 3565, 3564]` (${(6, 11, 12)}_d, {(7, 10, 13)}_d, {(7, 10, 12)}_d$) all map to `356_`.
 
-This [old article](https://web.archive.org/web/20250121154225/https://www.cubic.org/docs/octree.htm) and this [2016 paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC4738736/) are also good references.
+This [old article](https://web.archive.org/web/20250121154225/https://www.cubic.org/docs/octree.htm) and this [2016 paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC4738736/) are also good references. This method was first published in [1988](https://link.springer.com/chapter/10.1007/978-3-642-83492-9_20) with an implementation on the VAX 11/730 minicomputer.
 
 I was still looking for methods to extract a handful of dominant colors, and came across this [StackOverflow post](https://stackoverflow.com/a/79136387/28633986) that pointed me towards Google/Android's [Material Color Utilities](https://github.com/material-foundation/material-color-utilities). A couple of years ago, the Material Design System was overhauled to be centered around Material You. A core part of this design ecosystem was allowing custom color palettes, color schemes, and themes that could be easily generated (usually from a wallpaper). I've always wondered about the [color science](https://m3.material.io/blog/science-of-color-design) of their research and implementation, but the [first step](https://github.com/material-foundation/material-color-utilities?tab=readme-ov-file#capabilities-overview) in the process, which they call "Quantize", is based on a 1991 article [Efficient Statistical Computations for Optimal Color Quantization](https://theswissbay.ch/pdf/Gentoomen%20Library/Game%20Development/Programming/Graphics%20Gems%202.pdf) and a 2011 paper [Improving the Performance of K-Means for Color Quantization](https://arxiv.org/abs/1101.0395).
 
 Underlying all of this is me wondering if RGB-defaultism will be my downfall. I'm sure using one of the fancy new colorspaces is conducive towards deciding a "dominant" color.
+
+> [!remark]-
+> Spotify has an internal API called "colorextractor" https://github.com/spicetify/cli/blob/41ed71842258a77dc4725ea70a397f83021b7f12/jsHelper/spicetifyWrapper.js#L1184 .
+> It requires some sort of user token.

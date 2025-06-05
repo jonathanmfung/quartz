@@ -37,20 +37,20 @@ How is this missing-ness encoded in the data methodology, data sets, software, a
 
 # Languages and their Nothings #
 
-| Language        | Syntax              | Implementation                              | Meaning                                                                |
-|-----------------|---------------------|---------------------------------------------|------------------------------------------------------------------------|
-| IEEE 754[^1]    | `NaN`               | Value(s) of a floating-point number         | Not a Number                                                           |
-| Python          | `None{:python}`     | Object, Singleton of `NoneType{:python}`    | Absence of a value[^4]                                                     |
-| Python          | `nan{:python}`      | Float value                                 | IEEE NaN                                                               |
-| Python - Pandas | `<NA>`              | Nullable Integer                            | Proxy for IEEE NaN[^5]                                                     |
-| Julia           | `NaN{:julia}`       | Float value                                 | IEEE NaN                                                               |
-| Julia           | `missing{:julia}`   | Value, Singleton of `Missing{:julia}`       | Missing value in statistical sense[^6]                                     |
-| R               | `NA{:r}`            | Value, Instances for multiple types         | Missing value in statistical sense[^7]                                     |
-| SQL             | `NULL{:sql}`        | Marker for absent value                     | Absence of a value, Missing or Inapplicable information                |
-| C/C++           | `NULL{:c}`          | Preprocessor macro (implementation-defined) | Pointer that does not point to a valid object                               |
-| C/C++           | `nullptr{:c}`       | Singleton of `nullptr_t{:c}`                | Pointer that does not point to a valid object                               |
-| Haskell         | `Nothing{:haskell}` | Value of `Maybe a{:haskell}`                | Optional value, used for errors or exceptional cases.[^2]              |
-| Rust            | `None{:rust}`       | Value of `Option<T>{:rust}`                 | Optional value, used for default values, errors, nullable pointers[^3] |
+| Language        | Syntax              | Implementation                                                              | Meaning                                                                |
+|-----------------|---------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
+| IEEE 754[^1]    | `NaN`               | Value(s) of a floating-point number.  Two kinds of NaN: quiet and signaling | Not a Number                                                           |
+| Python          | `None{:python}`     | Object, Singleton of `NoneType{:python}`                                    | Absence of a value[^4]                                                 |
+| Python          | `nan{:python}`      | Float value                                                                 | IEEE NaN                                                               |
+| Python - Pandas | `<NA>`              | Nullable Integer                                                            | Proxy for IEEE NaN[^5]                                                 |
+| Julia           | `NaN{:julia}`       | Float value                                                                 | IEEE NaN                                                               |
+| Julia           | `missing{:julia}`   | Value, Singleton of `Missing{:julia}`                                       | Missing value in statistical sense[^6]                                 |
+| R               | `NA{:r}`            | Value, Instances for multiple types                                         | Missing value in statistical sense[^7]                                 |
+| SQL             | `NULL{:sql}`        | Marker for absent value                                                     | Absence of a value, Missing or Inapplicable information                |
+| C/C++           | `NULL{:c}`          | Preprocessor macro (implementation-defined)                                 | Pointer that does not point to a valid object                          |
+| C/C++           | `nullptr{:c}`       | Singleton of `nullptr_t{:c}`                                                | Pointer that does not point to a valid object                          |
+| Haskell         | `Nothing{:haskell}` | Value of `Maybe a{:haskell}`                                                | Optional value, used for errors or exceptional cases.[^2]              |
+| Rust            | `None{:rust}`       | Value of `Option<T>{:rust}`                                                 | Optional value, used for default values, errors, nullable pointers[^3] |
 
 There's a saying that programming is just manipulating data. But does that really apply to the statistical and experimental interpretation of "data"?
 
