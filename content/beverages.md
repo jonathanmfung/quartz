@@ -1,0 +1,54 @@
+---
+title: Beverages
+date: 2025-07-02T12:42:15-0700
+tags:
+  - food
+---
+- [Bandung](https://en.wikipedia.org/wiki/Bandung_(drink))
+    - Bulk: Water (or Soda Water, Fanta)
+    - Evaporated Milk (or Condensed Milk)
+    - Rose Syrup
+    - Can add Grass Jelly
+- [Chocolate de Agua](https://www.dominicancooking.com/chocolate-agua-hot-chocolate-water)
+    - Bulk: Water
+    - Baking Chocolate (or cocoa powder)
+    - Cinnamon, Clove, Nutmeg
+- [Falooda](https://en.wikipedia.org/wiki/Falooda)
+    - Bulk: Milk
+    - Rose Syrup, Ice Cream
+    - Vermicelli, Basil Seeds
+
+# Ingredients #
+- Bitters
+    - Angostura
+    - can mix with Soda Water, Ginger Beer
+- Syrups
+    - Chili, Pepper
+    - Floral: Rose, Elderflower, Lavender
+    - Fruity: Lemon, Orange
+    - Honey, Sugar
+    - Orgeat
+    - Luxardo Cherry
+- Mixers
+    - Ginger Beer
+    - Soda Water
+    - Tonic Water
+    - Water
+    - Vinegar
+- Herbs & Spices
+    - Basil
+    - Mint
+    - Ginger
+    - Black Pepper
+    - Paprika
+- Pastes
+    - [White Miso](https://www.reddit.com/r/Mocktails/comments/1kuioq2/misohoney_gold_rush/)
+        - 2oz strong smokey tea, 1oz lemon, 3/4oz miso honey syrup, Dash of bitters
+        - Lapsang Souchong recommended but we needed decaf and could only find Earl Gray today. 1 teabag brewed in 4oz water.
+        - Miso-honey syrup 80g honey 40g water 10g white miso Heat a bit and stir or shake to combine.
+    - Gochujang
+    - Marmite
+    - Red Bean Paste
+- Molecular Gastronomy
+    - Xantham Gum
+    - Soy Lecithin

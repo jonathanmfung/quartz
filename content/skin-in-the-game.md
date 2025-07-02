@@ -23,7 +23,7 @@ I will paraphrase, but I implore you to watch the video in full:
 Yes, the video is about Gutter Oil and explaining why that term exists in China, but what stuck with me was this quote at (28:05):
 > [!quote]+ Because if you believe something wildly off about China, if you're sitting there in your basement in America -- it's costless. You don't have to weigh the deliciousness of the hotpot against the probability of crummy oil. It doesn't matter if you wrongly believe that there's some giant social credit system, it doesn't affect you. You don't live there, you don't have any skin in the game.
 
-So much of the discourse I see on the Internet (specifically YouTube, Twitter and Reddit) can be disregarded through the lens that the commenters don't have any skin in the game. Whether this dismissal is justifiable or not is an exercise left for the reader.
+So much of the discourse I see on the Internet (specifically YouTube, Twitter, and Reddit) can be disregarded through the lens that the commenters don't have any skin in the game. Whether this dismissal is justifiable or not is an exercise left for the reader.
 
 Narrowing in on what games I actually have skin in has also been a nice thought exercise. Should I care about bad drivers on the same road as me? Should I care about local politics? What about national, other countries', and international? How emotionally invested am I in a certain hobby and what does it take to divest? What issues actually matter to me and what can I do about it?
 

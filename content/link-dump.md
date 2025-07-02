@@ -83,3 +83,5 @@ These are references that seem interesting to me, but haven't yet decided to add
     - Modules, Testing, Effects
 - [OCaml Discuss: Seq vs List, optimization](https://discuss.ocaml.org/t/seq-vs-list-optimization/6885)
     - #ocaml
+- [SO: Why are the State and Reader monads functions while the Writer monad is a tuple?](https://stackoverflow.com/a/22140063)
+    - #monads

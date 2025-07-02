@@ -149,6 +149,10 @@ Private servers
     - As a kid, I thought SEA was a literal sea, which I also somehow thought was the Atlantic Ocean.
 - "Reset" being based on UTC midnight. The server lag being a shared experience. Instead of communicating in timezones, people say "I'm free from +3 to +5".
 
+- Growing up normalized to microtransactions
+- so many things I see in mobile and PC games seem (indirectly) derived from MS
+    - guild check-ins, attendance, dailies, skin-crossovers, seasonal events, mini-games (e.g. bingo, match 4s), party quests, cubing as re-rolling attributes
+
 ---
 # Appendix: Misc Memories
 - Making new characters to complete a quest for "Attack 60% for Gloves" scrolls for quick money.
