@@ -48,7 +48,7 @@ And thus is this framing of how I see information spread in Kpop communities:
     - This is like trying to read a crumbled piece of paper
 
 
-Especially how a language barrier affects reliable sources. E.g. pannachoa always engaging people with what I presume is a small subset of the population. Sometimes the first to press truly is the winner. Machine translation is also an issue. Cultural concepts not being universal, e.g. n-word in both fandom reactions and how many people come out of the woodwork.
+Especially how a language barrier affects reliable sources. E.g. pannachoa always engaging people with what I presume is a small subset of the population. Sometimes the first to press truly is the winner. Machine translation is also an issue, they are just taken as fact. Cultural concepts not being universal, e.g. n-word in both fandom reactions and how many people come out of the woodwork.
 
 How people quickly learn to generalize fandoms and South Korea as a country and culture.
 

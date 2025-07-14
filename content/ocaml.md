@@ -202,6 +202,33 @@ OCaml supports both text-based preprocessors (a la C) and AST-based preprocessor
 # Optimization
 [Flambda](https://ocaml.org/manual/latest/flambda.html) is a set of optimizations including inlining, specialization, simplification, lifting, unboxing, etc. that can be invoked through the native compiler.
 
+# letrec
+
+When using `let rec{:ocaml}`, the recursive terms must be functions, and not values (even if they are functional values). This is pertinent with mutual recursion.
+
+The following gives a compile error:
+
+``` ocaml
+let rec foo_val : 'a -> 'a = bar_val
+    and bar_val : 'a -> 'a = foo_val
+```
+
+```
+File "letrec.ml", line 1, characters 29-36:
+1 | let rec foo_val : 'a -> 'a = bar_val
+                                 ^^^^^^^
+Error: This kind of expression is not allowed as right-hand side of let rec
+```
+
+This must be rewritten to:
+
+``` ocaml
+let rec foo_fn (x : 'a) : 'a = bar_fn x
+    and bar_fn (y : 'a) : 'a = foo_fn y
+```
+
+It is unfortunate that the error message is not very clear.
+
 # Footnotes
 [^1]: https://ocaml.org/manual/5.3/expr.html#sss:expr-records
 

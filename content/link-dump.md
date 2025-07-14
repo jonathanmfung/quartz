@@ -30,6 +30,7 @@ These are references that seem interesting to me, but haven't yet decided to add
 - [Visible Language Journal 59.1](https://www.visible-language.org/59-1/Visible-Language-59-1.pdf)
     - #typography, #visual-design
     - Visible Language Journal is The World's Oldest Peer-Reviewed Design Journal
+    - Nineteen Questions to Evaluate Typographic Research: Chaff and Wheat
 -  [Nanometer-Scale Layering in Rock Varnish](https://www.journals.uchicago.edu/doi/10.1086/629726)
     - [Desert Varnish is nanoscale coatings that appear on rock surfaces in arid environments](https://en.wikipedia.org/wiki/Desert_varnish)
 - [Propaganda (1928) - Edward Bernays](https://openlibrary.org/works/OL2781905W/Propaganda?edition=propaganda00bern_0)
@@ -85,3 +86,5 @@ These are references that seem interesting to me, but haven't yet decided to add
     - #ocaml
 - [SO: Why are the State and Reader monads functions while the Writer monad is a tuple?](https://stackoverflow.com/a/22140063)
     - #monads
+- [analysis of data types](https://cofault.com/aodt.html)
+    - [[zipper]]

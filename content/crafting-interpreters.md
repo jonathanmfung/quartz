@@ -57,8 +57,27 @@ No Notes
     - print statement: evaluate expression and display result
 - Defining variables
 - Blocks and local scope
+    - Lexical scope: source code text itself shows beginning and end of a scope
+    - Lox methods and fields are dynamically scoped
+    - Shadowing is important
+        - implemented with Parent pointer tree
 ## 9. Control Flow ##
+- If statements
+- dangling else problem: (`if ... if ... else`)
+    - usually resolved by binding `else` to nearest `if`
+- `and`, `or` both short circuit
+- While loops
+- For loops
+    - sugar for while loops
 ## 10. Functions ##
+- function calls are expressions, like a postfix unary
+- function declarations are statements
+    - function name (identifier), list of params (identifier), block statement
+- each function call gets new environment
+- functions implicitly return nil, unless return statement is used
+- Raise an exception to handle return unwinding
+    - catch in LoxFunction
+
 ## 11. Resolving and Binding ##
 ## 12. Classes ##
 ## 13. Inheritance ##
