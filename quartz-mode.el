@@ -15,8 +15,8 @@
 
 (defun quartz-get-file-tags (filepath)
   (condition-case err
-	  (gethash 'tags (yaml-parse-string (quartz-get-frontmatter filepath)))
-	(error (message "%s - %s" filepath (error-message-string err)))))
+      (gethash 'tags (yaml-parse-string (quartz-get-frontmatter filepath)))
+    (error (message "%s - %s" filepath (error-message-string err)))))
 
 (quartz-get-frontmatter "~/quartz/content/ocaml.md")
 (quartz-get-file-tags "~/quartz/content/ocaml.md")
@@ -118,24 +118,25 @@ From denote--slug-hyphenate."
       (erase-buffer)
       (make-vtable
        :columns '((:name "Tag" :primary 'ascend)
-				  (:name "File" :formatter quartz--filepath-to-title-naive
-						 :displayer (lambda (val max-width table) (propertize val 'face vtable))))
+		  (:name "File" :formatter quartz--filepath-to-title-naive
+			 :displayer (lambda (val max-width table) (propertize val 'face vtable))))
        :objects-function (lambda () (seq-map '(lambda (x) (list (car x) (cdr x)))
-											 (seq-mapcat 'quartz-tag-alist (quartz-list-files))))
+					     (seq-mapcat 'quartz-tag-alist (quartz-list-files))))
        :actions '("RET" (lambda (x) (find-file (cadr x))))
        :divider "│ "
-       ;; :row-colors (list (modus-themes-get-color-value 'bg-blue-nuanced) (modus-themes-get-color-value 'bg-main))
+       ;; :row-colors (list (modus-themes-get-color-value 'bg-blue-nuanced) (modus-themes-get-color-value
+       ;; 'bg-main))
        )
       (view-mode 1))
     (pop-to-buffer buf)))
 
 (defun quartz-tablist ()
-    (interactive)
-    (let* ((buf (get-buffer-create "*quartz-tablist*")))
-      (with-current-buffer buf
-	(quartz-tablist-mode)
-	(tabulated-list-print))
-      (pop-to-buffer buf)))
+  (interactive)
+  (let* ((buf (get-buffer-create "*quartz-tablist*")))
+    (with-current-buffer buf
+      (quartz-tablist-mode)
+      (tabulated-list-print))
+    (pop-to-buffer buf)))
 
 (define-derived-mode quartz-tablist-mode
   tabulated-list-mode "QuartzDB"
@@ -145,7 +146,8 @@ From denote--slug-hyphenate."
   (setq-local tabulated-list-entries '(("fileA" ["fileA" "tagA"])
 				       ("fileA" ["fileA" "tagB"])
 				       ("fileB" ["fileB" "tagB"])))
-  ;; (setq-local tabulated-list-groups (seq-group-by '(lambda (entry) (concat "* " (aref (cadr entry) 1))) tabulated-list-entries))
+  ;; (setq-local tabulated-list-groups (seq-group-by '(lambda (entry) (concat "* " (aref (cadr entry)
+  ;; 1))) tabulated-list-entries))
   )
 
 ;; TODO: query zotero sticky note annotations (based on searching-annotations-in-zotero)
@@ -168,13 +170,17 @@ From denote--slug-hyphenate."
 	 '(:annotation-function
 	   (lambda (filename) (concat "\t"
 				      (mapconcat 'identity
-						 (append (quartz-get-file-tags (file-name-concat quartz-content-dir filename)) nil)
+						 (append
+						  (quartz-get-file-tags
+						   (file-name-concat quartz-content-dir filename))
+						  nil)
 						 ", "))))))
     (file-name-concat
      quartz-content-dir
      (completing-read "Quartz Notes: "
 		      (mapcar (lambda (f) (file-relative-name f quartz-content-dir))
-			      (quartz-list-files)) nil t))))
+			      (quartz-list-files))
+		      nil t))))
 
 ;; TODO: (capitalize (replace-regexp-in-string "-" " " "kpops-vocabulary-asdf-40"))
 
@@ -201,7 +207,9 @@ From denote--slug-hyphenate."
     (when (file-regular-p path)
       (user-error "A file named `%s' already exists" path))
     (with-current-buffer buffer
-      (insert (format "---\ntitle: %s\ndate: %s\ntags:\n  -\n---\n" title (format-time-string "%Y-%m-%dT%T%z"))))))
+      (insert
+       (format "---\ntitle: %s\ndate: %s\ntags:\n  -\n---\n" title
+	       (format-time-string "%Y-%m-%dT%T%z"))))))
 
 ;; (defun quartz-find-or-create-file (target)
 ;;   (interactive (list (quartz-select-file)))
@@ -223,9 +231,12 @@ From denote--slug-hyphenate."
   "n" #'quartz-create-file
   "l" #'quartz-insert-link
   "u" #'quartz-current-buffer-url
-  "d" (lambda () (interactive) (progn (dired quartz-content-dir "-lht") ; list, human-readable, time-sort
-				      (dired-hide-details-mode)))
-  "r" (lambda () (interactive) (if current-prefix-arg
-				   (consult-ripgrep quartz-content-dir "wip\\|draft")
-				 (consult-ripgrep quartz-content-dir))))
+  "d" (lambda () (interactive)
+	(progn
+	  (dired quartz-content-dir "-lht") ; list, human-readable, time-sort
+	  (dired-hide-details-mode)))
+  "r" (lambda () (interactive)
+	(if current-prefix-arg
+	    (consult-ripgrep quartz-content-dir "wip\\|draft")
+	  (consult-ripgrep quartz-content-dir))))
 (bind-key "C-c n" quartz-mode-map)
