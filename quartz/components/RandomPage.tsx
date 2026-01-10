@@ -19,6 +19,7 @@ export default ((userOptions?: Options) => {
   // TODO: I have no idea how to get allFiles at runtime.
   //       I could scrape Explorer Component.
   function RandomPage(props: QuartzComponentProps) {
+  // TODO: Does this exclude draft pages?
     let ran_file = getRandom(props.allFiles)
     while (ran_file.slug == props.fileData.slug) {
       ran_file = getRandom(props.allFiles)

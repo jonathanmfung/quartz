@@ -49,3 +49,7 @@ Standards are more than just a document. They are also the governing bodies, inv
 - Game Theory Economist Rick Harbaugh:
     - [Label Confusion: The Groucho Effect of Uncertain Standards](https://host.kelley.iu.edu/riharbau/Groucho.pdf)
     - [Coarse Grades: Informing the Public by Withholding Information](https://host.kelley.iu.edu/riharbau/coarsegrades.pdf)
+- (De-facto standard) Stock Market Indices like Dow Jones (DJI) and S&P 500 being used as economic indicators
+    - This is toeing into data methodology, but what are people thinking when they reference these indices in analyses?
+    - How are the ways these indices are constructed related to resultant analyses and behavioral reactions (of traders)?
+    - See [@dutermeEngineeringStockMarket2023]

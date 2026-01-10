@@ -1,5 +1,14 @@
 ;; -*- lexical-binding: t; -*-
 
+;; TODO: function to insert-callout `> [!info] Title`
+
+;; TODO: function to jump to random post
+;; in content dired buffer
+;; (let*
+;;     ((max-row (progn (goto-char (point-max)) (line-number-at-pos)))
+;;      (rand-row (random max-row)))
+;;   (goto-line rand-row))
+
 (defun quartz-get-frontmatter (filepath)
   (with-temp-buffer
     (insert-file-contents filepath)
@@ -13,6 +22,7 @@
     (buffer-substring-no-properties
      start end)))
 
+;; TODO: Also getting date would be nice to see publishing order
 (defun quartz-get-file-tags (filepath)
   (condition-case err
       (gethash 'tags (yaml-parse-string (quartz-get-frontmatter filepath)))
@@ -112,6 +122,7 @@ From denote--slug-hyphenate."
 
 (defun quartz-list-db ()
   (interactive)
+  (require 'vtable)
   (let* ((buf (get-buffer-create "quartz-tags")))
     (with-current-buffer buf
       (view-mode -1)
@@ -166,6 +177,7 @@ From denote--slug-hyphenate."
 (defun quartz-select-file ()
   "Returns path relative to home."
   ;; NOTE: user can match completions with "&programming"
+  ;; TODO: throw error if a file has no tags
   (let ((completion-extra-properties
 	 '(:annotation-function
 	   (lambda (filename) (concat "\t"

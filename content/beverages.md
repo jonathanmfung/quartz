@@ -17,6 +17,11 @@ tags:
     - Bulk: Milk
     - Rose Syrup, Ice Cream
     - Vermicelli, Basil Seeds
+- [[hong-kong-milk-tea]]
+- [Daeng Manao Soda (Thai)](https://www.mintsmeals.com/posts/authentic-thai-lime-soda-daeng-manao-soda-recipe)
+    - Bulk: Soda Water
+    - Hale's Blue Boy Salak Syrup
+    - Lime Juice
 
 # Ingredients #
 - Bitters
@@ -28,13 +33,20 @@ tags:
     - Fruity: Lemon, Orange
     - Honey, Sugar
     - Orgeat
-    - Luxardo Cherry
+    - Luxardo Cherry, Grenadine
+    - Store-bought (roughly fancy to cheap)
+        - [1883](https://www.1883.com/en/our-syrups/)
+        - [Monin](https://monin.us/)
+        - [Torani](https://www.torani.com)
+        - [Da Vinci Gourmet](https://apmea.davincigourmet.com/products/?c=classic-syrups)
+        - Misc: [Holy Kakow](https://holykakow.com/organic-coffee-syrups-2/)
 - Mixers
     - Ginger Beer
     - Soda Water
     - Tonic Water
     - Water
     - Vinegar
+    - Sodas: Coca-Cola, Sprite
 - Herbs & Spices
     - Basil
     - Mint
@@ -52,3 +64,5 @@ tags:
 - Molecular Gastronomy
     - Xantham Gum
     - Soy Lecithin
+- Misc
+    - Icy (blended, frappe, slushy, granita)

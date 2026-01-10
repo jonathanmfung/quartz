@@ -3,6 +3,7 @@ title: Markets
 date: 2025-05-23T09:59:58-0700
 tags:
   - thoughts
+draft: true
 ---
 
 - Buying a house (or renting an apartment) is an extremely luck-based process. The literal geographic location you end up in will shape where you eat, what hobbies you are exposed to, how you travel to the airport, etc. You are searching for ~months in a range of areas, at the whim of other people being in a situation to sell. Maybe you're in a situation to buy that was unplanned; you're in a state of desperation. Your preferences match or do not match these options. You take your chance on a bid, only to end up rejected.

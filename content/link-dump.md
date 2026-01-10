@@ -88,3 +88,40 @@ These are references that seem interesting to me, but haven't yet decided to add
     - #monads
 - [analysis of data types](https://cofault.com/aodt.html)
     - [[zipper]]
+- [Architectural styles of curiosity in global Wikipedia mobile app readership - Dale Zhou et al](https://www.science.org/doi/10.1126/sciadv.adn3268)
+    - [Video Presentation](https://www.youtube.com/watch?v=mhhGF8tpo9g&list=PLhV3K_DS5YfJM2hhwoRY7MyFLx8XAIwfv&index=37)
+- https://benjaminselfridge.github.io/posts/2022-05-10-model-checking-1.html
+    - [[model-checking]]
+- https://arista.my.site.com/AristaCommunity/s/article/Announcing-Spectacle-A-language-for-Writing-and-Checking-Formal-Specifications-in-Haskell
+    - [[model-checking]]
+- Books on #semiconductors, #solid-state-physics
+    - [Principles Of Electronic Materials (S. O. Kasap)](https://archive.org/details/S.O.KasapPrinciplesOfElectronicMaterialsAbOk.org/page/n321/mode/2up)
+    - Fundamentals of Semiconductors - Physics and Materials Properties (Peter Y. Yu, Manuel Cardona)
+    - Electronic Properties of Materials (Rolf E. Hummel)
+    - [MIT 3.024: Electronic, Optical And Magnetic Properties of Materials](https://ocw.mit.edu/courses/3-024-electronic-optical-and-magnetic-properties-of-materials-spring-2013/pages/readings/)
+- #flexoelectricity, #triboelectricity
+    - [On the origin of contact-electrification](https://doi.org/10.1016/j.mattod.2019.05.016)
+    - [From contact electrification to triboelectric nanogenerators](https://doi.org/10.1088/1361-6633/ac0a50)
+    - [Triboelectric Nanogenerator: Structure, Mechanism, and Applications](https://doi.org/10.1021/acsnano.0c09803)
+    - [Fundamental theories and basic principles of triboelectric effect: A review](https://doi.org/10.1007/s40544-018-0217-7)
+- [UN: New Economics For Sustainable Development - Attention Economy](https://www.un.org/sites/un2.un.org/files/attention_economy_feb.pdf)
+    - #attention-economy
+- #opinion-dynamics
+    - [A survey on the fusion process in opinion dynamics](https://doi.org/10.1016/j.inffus.2017.11.009)
+    - [Opinion Dynamics: A Multidisciplinary Review and Perspective on Future Research](https://www.igi-global.com/article/international-journal-knowledge-systems-science/61135)
+- ETAP: a platform for experimenting with typesetting algorithms
+    - [GitHub](https://github.com/didierverna/etap?tab=readme-ov-file)
+    - [Paper](https://tug.org/TUGboat/tb44-2/tb137verna-realtime.pdf)
+    - As of writing (Dec 2025), relies on proprietary LispWorks Common Lisp for GUI
+- [The art of text (rendering) - Nicolas Rougier @ 39C3](https://app.media.ccc.de/v/39c3-the-art-of-text-rendering#t=2)
+    - #fonts, #text-rendering
+- [Simple Bidirectional Type Inference - ettolrach](https://ettolrach.com/blog/bidirectional_inference.html)
+    - [Accomponying Reddit thread](https://www.reddit.com/r/ProgrammingLanguages/comments/1pzjqjb/i_wrote_a_bidirectional_type_inference_tutorial/)
+    - #type-inference
+- [Digital Signals Theory - Brian McFee](https://brianmcfee.net/dstbook-site/index.html)
+    - Book on Signals and systems, Sampling theory, Discrete Fourier analysis, and Discrete-time linear filtering.
+    - #digital-signal-processing
+- [Selective Applicative Functors - veritates.love](https://blog.veritates.love/selective_applicatives_theoretical_basis.html)
+    - #haskell
+- [Eiger: Auditable, executable, flexible legal regulations](https://arxiv.org/abs/2209.04939)
+    - #formal-methods, #regulations

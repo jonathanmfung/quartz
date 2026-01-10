@@ -36,3 +36,7 @@ It wasn't until I made the connection that `do-notation` desugars to a large exp
 It is this notion of extraction, especially through a lazy-evaluation lens, where the term 'computation' makes sense to me. A monad-returning function only adds transformation steps. When `run`, these transformations are completely applied to get back a usable value.
 
 Coming back full-circle, for the `Maybe` example `runMaybe` can be thought of as pattern matching on `Just`. This runs into the issue that `runMaybe` would be partial and lead to some panic/error propagation, but this is usually desired given the semantics of `Nothing`.
+
+# Link Dump
+- [pollablo - Free The Monads!!](https://pollablog.bearblog.dev/free-the-monads/)
+- [SO - What are Free Monads?](https://stackoverflow.com/questions/13352205/what-are-free-monads)

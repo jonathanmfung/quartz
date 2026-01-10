@@ -77,7 +77,18 @@ No Notes
 - functions implicitly return nil, unless return statement is used
 - Raise an exception to handle return unwinding
     - catch in LoxFunction
-
 ## 11. Resolving and Binding ##
+- a scope is not simply just a block of statements
+    - e.g. a var declaration affects the current scope- before and after
+    - Scheme splits blocks like this
+- closures should be a frozen snapshot of the decl env
+- Add a semantic analysis step
+    - resolving is tracking each variable expression back to it's declaration
+    - when looking for a variable, count how many envs are walked up
+        - then can just directly use this number to go from usage to declaration, rather than walking the stack
+    - do this in a variable resolution pass after parsing
+        - currently, interpreter does it every time an expression is evaluated
+        - a separate pass will do it only once, it is a static property
+- I had an issue where I was only storing ~locals~ as ~raw_expr~, so e.g. resolving ~x~ in different places would make latter usages overwrite prior ones. Changing it to ~expr~ with location information made the stored scopes unique.
 ## 12. Classes ##
 ## 13. Inheritance ##

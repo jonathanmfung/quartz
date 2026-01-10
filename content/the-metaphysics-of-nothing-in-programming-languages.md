@@ -74,6 +74,9 @@ Appendix A considers some potential interpretations of `NaN`:
 > - D. Numerically indefinite (e.g. ≈ 0/ ≈ 0)
 > - E. The result of an invalid operation
 
+# Jane Street Blog Post (TODO) #
+https://blog.janestreet.com/making-something-out-of-nothing-or-why-none-is-better-than-nan-and-null/
+
 [^1]: Okay, not a language but still significant.
 
 [^2]: https://www.haskell.org/onlinereport/haskell2010/haskellch21.html#x29-25500021

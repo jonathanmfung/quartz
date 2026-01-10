@@ -57,9 +57,14 @@ wip: true
  | Ifan                 | weiguk-          | international fan, foreign fan, generally refers to non-south korean citizens. Sometimes refers to english speakers.   |         |
 
 # Misc
- | English         | Korean | Definition                                                                                        | Example |
- |-----------------|--------|---------------------------------------------------------------------------------------------------|---------|
- | April Fools Day |        | When fansites post pictures of other idols. Also things like idols changing their Bubble profiles. |         |
+ | English                      | Korean | Definition                                                                                           | Example                 |
+ |------------------------------|--------|------------------------------------------------------------------------------------------------------|-------------------------|
+ | April Fools Day              |        | When fansites post pictures of other idols. Also things like idols changing their Bubble profiles.   |                         |
+ | REST/CLOSE, [Close], Closed. |        | Originates from fansites announcing they are closing or taking a break. Also applies to fan accounts | A tweet of only "CLOSE" |
+ | Data Seller                  |        |                                                                                                      |                         |
+
+
+
 
 
 

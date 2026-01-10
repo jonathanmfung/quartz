@@ -15,7 +15,7 @@ data MyList a = Nil | Cons a (MyList a)
 
 data Path a = Forward {back_ctx :: a}
 
--- Distinguish between build-in List and MyList, thread is just a history of Path
+-- thread is a history of Paths taken, it being a built-in List is an implementation detail
 data ZipperList a = Zip {list :: MyList a, thread :: [Path a]}
 
 mkZipperList :: MyList a -> ZipperList a
@@ -39,7 +39,7 @@ unZip Zip {list = Nil, thread = ts} = error "unreachable, can't go up."
 unZip z = unZip $ canon z
 ```
 
-For a classical data structure with `n` elements, there are `n` different zippers that can be constructed from it.
+For a classical data structure with `n` elements, there are `n` different zippers that can be constructed from it. Notice that the head of the `list` field is the current element under "focus".
 
 Notice that fragmenting `MyList` into a sequence of `Path`s is akin to the notion of a derivative in calculus. A recursive data type can be represented as an algebraic equation. `MyList a` corresponds to `MyList(A) = 1 + A * MyList(A)`. Now treat `MyList(A)` as `X` (`1 + A * X`), then the derivative with respect to x is `A`. This corresponds to the definition of `Path`.
 

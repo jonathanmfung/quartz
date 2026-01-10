@@ -6,6 +6,6 @@ tags:
 ---
 
 - Only ask for one thing at a time.
-- Advice is given based on what works for the teller.
-- Do I have any [[skin-in-the-game]]?
+- Advice is given based on what has worked for the teller.
+- Do I have any [[skin-in-the-game | skin in the game]]?
 - I can only see in front of myself.

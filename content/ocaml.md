@@ -28,16 +28,13 @@ let b = { delta = 0; gamma = "abc" } in
 The `ref` type (short for "references") is essentially syntactic sugar for a record with a single mutable field.[^2]
 
 ``` ocaml
-#show_type ref;;
-(* type 'a ref = { mutable contents : 'a; } *)
+type 'a ref = { mutable contents : 'a; }
 
-#show (!);;
-(* ( ! ) : 'a ref -> 'a = "%field0" *)
-(* Equivalent to: let ( ! ) r = r.contents *)
+val ( ! ) : 'a ref -> 'a
+let ( ! ) r = r.contents
 
-#show (:=);;
-(* ( := ) : 'a ref -> 'a -> unit = "%setfield0" *)
-(* Equivalent to: let ( := ) r x = r.contents <- x *)
+val ( := ) : 'a ref -> 'a -> unit
+let ( := ) r x = r.contents <- x
 ```
 
 # Records & Row Polymorphism
@@ -61,8 +58,6 @@ Module Signatures are the same as Module Types. "Interface" may also refer to a 
 A Functor (`module MyFunctor (T : TYPEA) : TYPEB = struct ... end{:ocaml}`) is a function from a Module of some Signature to a Module with some other Signature.
 
 An Abstract Type cannot be constructed natively, only through the module's functions, if they even exist.
-
-A Private Type ...
 
 # Runtime
 OCaml values are encoded as *[[tagged-pointer | tagged pointers]]*. This is the reason why `int` is effectively only 31/63 bits.[^3]
@@ -228,6 +223,29 @@ let rec foo_fn (x : 'a) : 'a = bar_fn x
 ```
 
 It is unfortunate that the error message is not very clear.
+
+# Exception matching
+When I was first learning OCaml, handling exceptions looked very similar to what you would see in a traditional OOP language:
+
+``` ocaml
+try
+  foo ()
+with
+  | Failure msg -> print_endline "caught Failure"
+  | Invalid_argument msg -> print_endline "caught Invalid_arg"
+```
+
+However, while looking at the source for [`Fun.protect`](https://github.com/ocaml/ocaml/blob/2cc2eb031eac47a2fd713490d01a795b69ee6040/stdlib/fun.ml#L28) it turns out you can also pattern match on exception in match arms:
+
+``` ocaml
+match foo () with
+  | res -> res
+  | exception (Failure msg) -> print_endline "caught Failure"
+  | exception (Invalid_argument msg) -> print_endline "caught Invalid_arg"
+```
+
+This seems to be a feature circa v4.02 (2014), courtesy [Yaron Minsky](https://blog.janestreet.com/pattern-matching-and-exception-handling-unite/).
+
 
 # Footnotes
 [^1]: https://ocaml.org/manual/5.3/expr.html#sss:expr-records

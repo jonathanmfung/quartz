@@ -42,4 +42,6 @@ One way to think about the relationship between effectful computations and effec
 
 Now that a pure computation is converted to an effectful one, there needs to be a layer above to actually manage the raised effect. For the database example, there could be one version for unit testing and another for the real database. Either way the handler would manage the connection and pass a resultant value to the continuation `k`; now the underlying computation "feels pure".
 
+Another way to think about it is that exceptions are one-sided and effects are two-sided. Usually when a function raises an exception it is "giving up". E.g. the `logarithm` function cannot handle inputs zero or less. This is a sign of handing off all its control. For an effectful function, doing a `perform` is temporarily turning over control to the handler for computations it doesn't want to deal with.
+
 [@hoffmanUnisonAbilitiesOCaml2025]
